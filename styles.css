@@ -1,0 +1,454 @@
+@font-face {
+    font-family: titlefont;
+    src: url(fonts/DegularDisplay.woff2);
+}
+
+@font-face {
+    font-family: ObviouslyVariable;
+    src: url(fonts/ObviouslyVariable.woff2);
+    font-stretch: 200%;
+}
+
+@font-face {
+    font-family: DegularDisplayBold;
+    src: url('fonts/DegularDisplay-Bold.woff2');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.floating:nth-child(1) {
+    display: inline-block;
+    width: 100%;
+    font-family: ObviouslyVariable, sans-serif;
+    font-stretch: 120%; /* Stretches the font to 120% of its normal width */
+}
+
+.floating:nth-child(2), .floating:nth-child(3) {
+    font-family: ObviouslyVariable, sans-serif;
+    font-stretch: 120%; /* Stretches the font to 120% of its normal width */
+}
+
+.back-text {
+    font-weight: 900;
+    font-size: 151px;
+    display: block; /* Ensure block display for vertical spacing adjustments */
+    width: 100%;
+    font-family: ObviouslyVariable, sans-serif;
+    transform: scaleX(3.9); /* Scale the text horizontally to 390% of its original width */
+    line-height: 1; /* Reduce line-height to the smallest value */
+    margin: 0; /* Remove default margins */
+}
+
+.back-text:nth-child(2),
+.back-text:nth-child(3),
+.back-text:nth-child(4) {
+    margin-top: -20px; /* Adjust this value to control the vertical gap */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+    font-family: DegularDisplayBold, sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.button-container .btn {
+    display: flex;
+    align-items: center; /* Ensure the button's content is centered vertically */
+    justify-content: center; /* Ensure the button's content is centered horizontally */
+}
+
+
+.btn {
+    font-family: DegularDisplayBold, sans-serif;
+    text-transform: uppercase;
+}
+
+.btn:hover .btn-slide-show-text1 {
+    margin-left: 65px;
+}
+
+.btn-shadow-drop {
+    position: relative;
+    margin-top: 10%;
+    background: rgb(249, 250, 250);
+    padding: 20px;
+    font-size: 0.9em;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out 0s;
+    left: 0px;
+    top: 0px;
+    width: 180px; /* Width for the button */
+    height: 60px; /* Adjust height to make it oval */
+    border-radius: 30px; /* Half of the height for oval shape */
+}
+
+.btn-shadow-drop:hover {
+    left: 4px;
+    top: 4px;
+    box-shadow: black 0px 0px 0px 0px;
+    cursor: pointer;
+}
+
+.btn-shadow-drop--black {
+    border: 5px solid black;
+    color: rgb(51, 51, 51);
+    box-shadow: black 4px 4px 0px 0px;
+}
+
+
+
+
+
+
+
+
+/* Navbar container styling */
+.navbar {
+    border: 2px solid black;
+    width: 300px; /* Adjust width as needed */
+    height: 2rem; /* Height of the navbar */
+    margin: 0 auto; /* Center horizontally */
+    position: fixed; /* Change to fixed positioning */
+    top: 20px; /* Adjust vertical position as needed */
+    left: 50%; /* Center horizontally relative to the viewport */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center; /* Center the text inside the navbar */
+    background-color: #fff; /* White background color for the navbar */
+    z-index: 1000; /* Ensure the navbar stays on top of other content */
+}
+
+/* Navbar link styling */
+.navbar a {
+    font-family: DegularDisplayBold, sans-serif !important;
+    font-size: 20px;
+    display: inline-block; /* Ensures that text is centered properly */
+    text-decoration: none;
+    color: black;
+    font-family: titlefont, sans-serif;
+    font-weight: 900;
+    line-height: 2rem; /* Center text vertically within the navbar */
+}
+
+
+.hidden {
+    display: none;
+}
+
+section {
+    padding: 20px;
+    height: 150vh;
+    box-sizing: border-box;
+}
+
+#home {
+    font-family: titlefont, sans-serif;
+    background-color: #1CAC78;
+}
+.popped-up {
+    color: #a8d5ba;
+    font-family: titlefont, sans-serif;
+    animation: popUp 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards, pause 0.5s 0.5s forwards,
+               fastShrinkAndRise 0.4s 0.7s ease-out forwards;
+    animation: popUp 0.5s ease-out forwards, pause 0.5s 0.5s forwards, fastShrinkAndRise 0.5s 1s ease-out forwards;
+    /* The pause animation is for the delay between popUp and fastShrinkAndRise */
+}
+
+.head {
+    color: #a8d5ba;
+    font-size: 282px;
+    text-align: center;
+    vertical-align: baseline;
+    font-weight: 900;
+}
+
+.floating {
+    display: inline-block;
+    transition: transform 0.5s ease-out; /* Smooth transition for the floating effect */
+    /* Initial position for floating effect */
+}
+
+#about {
+    font-family: titlefont, sans-serif;
+    background-color: rgb(201, 66, 69) !important;
+    color: rgb(248, 193, 186) !important;
+}
+
+@keyframes popUp {
+    0% {
+        transform: translateY(100%) scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(-10%) scale(1.1);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(5%) scale(0.95);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fastShrinkAndRise {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.3) translateY(-20px);
+    }
+}
+
+@keyframes pause {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+footer {
+    background-color: #72A0C1;
+    color: rgb(248, 193, 186);
+    padding: 40px 20px;
+    font-family: DegularDisplayBold, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h2, .footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: rgb(248, 193, 186);
+}
+
+.footer-section p, .footer-section a {
+    font-size: 16px;
+    color: rgb(248, 193, 186);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+    color: rgb(248, 193, 186);
+}
+
+.social-icon:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgb(248, 193, 186);
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    font-size: 20px;
+}
+
+.year {
+    font-weight: 900;
+    font-size: 151px;
+    display: block; /* Ensure block display for vertical spacing adjustments */
+    width: 100%;
+    font-family: ObviouslyVariable, sans-serif;
+    transform: scaleX(3.9); /* Scale the text horizontally to 390% of its original width */
+    line-height: 1; /* Reduce line-height to the smallest value */
+    margin: 0; /* Remove default margins */
+}
+
+#sliderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: -300px; /* Adjust as needed */
+}
+
+/* Styling the input range */
+#timelineSlider {
+    -webkit-appearance: none;
+    width: 20%;
+    height: 8px;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid black;
+    outline: none;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+/* Styling the slider thumb (circle) */
+#timelineSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#timelineSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover and active effects for the thumb */
+#timelineSlider:hover::-webkit-slider-thumb,
+#timelineSlider:focus::-webkit-slider-thumb {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#timelineSlider:hover::-moz-range-thumb,
+#timelineSlider:focus::-moz-range-thumb {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider-description {
+    font-family: DegularDisplayBold, sans-serif;
+    font-size: 35px;
+    color: rgb(248, 193, 186);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 800px;
+}
+
+.button-container a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        height: auto;
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0;
+        border: none;
+    }
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-container .btn {
+        width: 100%;
+    }
+
+    .back-text {
+        font-size: 100px;
+        transform: scaleX(2.5);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .slider-description {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .back-text {
+        font-size: 60px;
+        transform: scaleX(1.5);
+    }
+
+    .footer-section h2, .footer-section h3 {
+        font-size: 20px;
+    }
+
+    .footer-section p, .footer-section a {
+        font-size: 14px;
+    }
+
+    .slider-description {
+        font-size: 18px;
+    }
+
+    #timelineSlider {
+        width: 30%;
+    }
+
+    #timelineSlider::-webkit-slider-thumb,
+    #timelineSlider::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+    }
+}
