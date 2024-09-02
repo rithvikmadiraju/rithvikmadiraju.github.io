@@ -24,29 +24,29 @@ body {
     display: inline-block;
     width: 100%;
     font-family: ObviouslyVariable, sans-serif;
-    font-stretch: 120%; /* Stretches the font to 120% of its normal width */
+    font-stretch: 120%;
 }
 
 .floating:nth-child(2), .floating:nth-child(3) {
     font-family: ObviouslyVariable, sans-serif;
-    font-stretch: 120%; /* Stretches the font to 120% of its normal width */
+    font-stretch: 120%;
 }
 
 .back-text {
     font-weight: 900;
     font-size: 151px;
-    display: block; /* Ensure block display for vertical spacing adjustments */
+    display: block;
     width: 100%;
     font-family: ObviouslyVariable, sans-serif;
-    transform: scaleX(3.9); /* Scale the text horizontally to 390% of its original width */
-    line-height: 1; /* Reduce line-height to the smallest value */
-    margin: 0; /* Remove default margins */
+    transform: scaleX(3.9);
+    line-height: 1;
+    margin: 0;
 }
 
 .back-text:nth-child(2),
 .back-text:nth-child(3),
 .back-text:nth-child(4) {
-    margin-top: -20px; /* Adjust this value to control the vertical gap */
+    margin-top: -20px;
 }
 
 .button-container {
@@ -64,8 +64,8 @@ body {
 
 .button-container .btn {
     display: flex;
-    align-items: center; /* Ensure the button's content is centered vertically */
-    justify-content: center; /* Ensure the button's content is centered horizontally */
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -90,9 +90,9 @@ body {
     transition: all 0.3s ease-in-out 0s;
     left: 0px;
     top: 0px;
-    width: 180px; /* Width for the button */
-    height: 60px; /* Adjust height to make it oval */
-    border-radius: 30px; /* Half of the height for oval shape */
+    width: 180px;
+    height: 60px;
+    border-radius: 30px;
 }
 
 .btn-shadow-drop:hover {
@@ -115,31 +115,31 @@ body {
 
 
 
-/* Navbar container styling */
+
 .navbar {
     border: 2px solid black;
-    width: 300px; /* Adjust width as needed */
-    height: 2rem; /* Height of the navbar */
-    margin: 0 auto; /* Center horizontally */
-    position: fixed; /* Change to fixed positioning */
-    top: 20px; /* Adjust vertical position as needed */
-    left: 50%; /* Center horizontally relative to the viewport */
-    transform: translateX(-50%); /* Center horizontally */
-    text-align: center; /* Center the text inside the navbar */
-    background-color: #fff; /* White background color for the navbar */
-    z-index: 1000; /* Ensure the navbar stays on top of other content */
+    width: 300px;
+    height: 2rem;
+    margin: 0 auto;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: #fff;
+    z-index: 1000;
 }
 
-/* Navbar link styling */
+
 .navbar a {
     font-family: DegularDisplayBold, sans-serif !important;
     font-size: 20px;
-    display: inline-block; /* Ensures that text is centered properly */
+    display: inline-block;
     text-decoration: none;
     color: black;
     font-family: titlefont, sans-serif;
     font-weight: 900;
-    line-height: 2rem; /* Center text vertically within the navbar */
+    line-height: 2rem;
 }
 
 
@@ -163,7 +163,7 @@ section {
     animation: popUp 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards, pause 0.5s 0.5s forwards,
                fastShrinkAndRise 0.4s 0.7s ease-out forwards;
     animation: popUp 0.5s ease-out forwards, pause 0.5s 0.5s forwards, fastShrinkAndRise 0.5s 1s ease-out forwards;
-    /* The pause animation is for the delay between popUp and fastShrinkAndRise */
+
 }
 
 .head {
@@ -176,8 +176,8 @@ section {
 
 .floating {
     display: inline-block;
-    transition: transform 0.5s ease-out; /* Smooth transition for the floating effect */
-    /* Initial position for floating effect */
+    transition: transform 0.5s ease-out;
+
 }
 
 #about {
@@ -246,12 +246,12 @@ footer {
 .footer-section h2, .footer-section h3 {
     margin-bottom: 10px;
     font-size: 24px;
-    color: rgb(248, 193, 186);
+    color: white;
 }
 
 .footer-section p, .footer-section a {
     font-size: 16px;
-    color: rgb(248, 193, 186);
+    color: white;
     text-decoration: none;
 }
 
@@ -272,7 +272,7 @@ footer {
     display: inline-block;
     margin-right: 10px;
     font-size: 20px;
-    color: rgb(248, 193, 186);
+    color: white;
 }
 
 .social-icon:hover {
@@ -282,7 +282,7 @@ footer {
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
-    border-top: 1px solid rgb(248, 193, 186);
+    border-top: 1px solid white;
     padding-top: 10px;
 }
 
@@ -293,12 +293,12 @@ footer {
 .year {
     font-weight: 900;
     font-size: 151px;
-    display: block; /* Ensure block display for vertical spacing adjustments */
+    display: block;
     width: 100%;
     font-family: ObviouslyVariable, sans-serif;
-    transform: scaleX(3.9); /* Scale the text horizontally to 390% of its original width */
-    line-height: 1; /* Reduce line-height to the smallest value */
-    margin: 0; /* Remove default margins */
+    transform: scaleX(3.9);
+    line-height: 1;
+    margin: 0;
 }
 
 #sliderContainer {
@@ -307,10 +307,10 @@ footer {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin-top: -300px; /* Adjust as needed */
+    margin-top: -300px;
 }
 
-/* Styling the input range */
+
 #timelineSlider {
     -webkit-appearance: none;
     width: 20%;
@@ -323,7 +323,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-/* Styling the slider thumb (circle) */
+
 #timelineSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -346,7 +346,7 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover and active effects for the thumb */
+
 #timelineSlider:hover::-webkit-slider-thumb,
 #timelineSlider:focus::-webkit-slider-thumb {
     transform: scale(1.2);
@@ -374,7 +374,7 @@ footer {
     color: black;
 }
 
-/* Media queries for responsiveness */
+
 @media (max-width: 768px) {
     .navbar {
         width: 100%;
