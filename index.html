@@ -10,12 +10,10 @@
     <style>
         .color1 {
             background-color: #1CAC78;
-            color: #a8d5ba;
         }
 
         .color2 {
             background-color: rgb(201, 66, 69);
-            color: rgb(248, 193, 186);
         }
 
         .color3 {
@@ -101,39 +99,5 @@
 
     <script src="js/script.js"></script>
     <script src="js/modal.js"></script>
-
-    <script>
-        let currentSection = -1;
-
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            let index = -1;
-
-            sections.forEach((section, i) => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                    index = i;
-                }
-            });
-
-
-            const colorClasses = ['color1', 'color2', 'color3'];
-            const newColorClass = index !== -1 ? colorClasses[index] : '';
-
-
-            if (index !== currentSection) {
-                currentSection = index;
-
-
-                document.body.className = '';
-                sections.forEach(section => section.className = '');
-
-                if (newColorClass) {
-                    document.body.classList.add(newColorClass);
-                    sections.forEach(section => section.classList.add(newColorClass));
-                }
-            }
-        });
-    </script>
 </body>
 </html>
