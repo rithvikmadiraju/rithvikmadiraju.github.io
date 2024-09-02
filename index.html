@@ -6,25 +6,61 @@
     <title>Rithvik Madiraju</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="change">
+    <style>
+        .color1 {
+            background-color: #1CAC78;
+            color: #a8d5ba;
+        }
+
+        .color2 {
+            background-color: rgb(201, 66, 69);
+            color: rgb(248, 193, 186);
+        }
+
+        .color3 {
+
+        }
+    </style>
+
+    <div class="menu-container">
+        <button class="menu-button" id="openModal">☰ Menu</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="border-container">
+                <div id="modalPersonalText" class="head" style="margin-top: 100px; font-size: 100px !important;">
+                    <span class="menu-text" style="font-size: 100px;"><a href="about.html" style="text-decoration: none; color:rgb(248, 193, 186);">ABOUT ME</a></span>
+                    <span class="menu-text special" style="font-size: 100px;"><a href="education.html" style="text-decoration: none; color:rgb(248, 193, 186);">EDUCATION</a></span>
+                    <span class="menu-text special" style="font-size: 100px;"><a href="awards.html" style="text-decoration: none; color:rgb(248, 193, 186);">AWARDS</a></span>
+                    <span class="menu-text special" style="font-size: 100px;"><a href="projects.html" style="text-decoration: none; color:rgb(248, 193, 186);">PROJECTS</a></span>
+                    <span class="menu-text special" style="font-size: 100px;"><a href="experiences.html" style="text-decoration: none; color:rgb(248, 193, 186);">EXPERIENCES</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="navbar">
         <a href="index.html">Rithvik Madiraju</a>
     </div>
-    <section id="home">
+
+    <section id="section1">
         <div id="welcomeText" class="popped-up head">Welcome!</div>
-        <div id="personalText" class="head hidden" style="margin-top: -100px;">
+        <div id="sectionPersonalText1" class="head hidden" style="margin-top: -100px;">
             <span class="floating">I'm</span>
             <span class="floating">Rithvik</span>
             <span class="floating">Madiraju</span>
         </div>
     </section>
 
-    <section id="about">
-        <div id="personalText" class="head" style="color: rgb(248, 193, 186) !important; margin-top: 300px;">
+    <section id="section2">
+        <div id="sectionPersonalText2" class="head" style="color: rgb(248, 193, 186) !important; margin-top: 300px;">
             <span class="back-text">LET'S</span>
-            <span class="back-text special" >EXPLORE</span>
-            <span class="back-text special" >MY</span>
-            <span class="back-text special" >PORTFOLIO</span>
+            <span class="back-text special">EXPLORE</span>
+            <span class="back-text special">MY</span>
+            <span class="back-text special">PORTFOLIO</span>
         </div>
         <div class="button-container">
             <button class="btn btn-shadow-drop btn-shadow-drop--black"><a href="about.html"><span>About Me</span></a></button>
@@ -57,13 +93,47 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Rithvik Madiraju. All rights reserved.</p>
+            <p style="color: white !important;">&copy; 2024 Rithvik Madiraju. All rights reserved.</p>
         </div>
     </footer>
 
     <div class="blue-cloud"></div>
 
-
     <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
+
+    <script>
+        let currentSection = -1;
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let index = -1;
+
+            sections.forEach((section, i) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    index = i;
+                }
+            });
+
+
+            const colorClasses = ['color1', 'color2', 'color3'];
+            const newColorClass = index !== -1 ? colorClasses[index] : '';
+
+
+            if (index !== currentSection) {
+                currentSection = index;
+
+
+                document.body.className = '';
+                sections.forEach(section => section.className = '');
+
+                if (newColorClass) {
+                    document.body.classList.add(newColorClass);
+                    sections.forEach(section => section.classList.add(newColorClass));
+                }
+            }
+        });
+    </script>
 </body>
 </html>

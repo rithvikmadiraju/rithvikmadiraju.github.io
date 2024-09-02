@@ -15,10 +15,89 @@
 }
 
 body {
+    transition: background-color 0.5s, color 0.5s;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
+
+.menu-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.menu-button {
+    background-color: #1CAC78;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: DegularDisplayBold, sans-serif;
+    z-index: 1000;
+}
+
+.menu-button:hover {
+    background-color: #a8d5ba;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    background: white;
+    margin: 0;
+    padding: 20px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #C94245;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.border-container {
+    background-color: rgb(201, 66, 69) !important;
+    color: rgb(248, 193, 186) !important;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    border: 2px solid black;
+}
+
 
 .floating:nth-child(1) {
     display: inline-block;
@@ -47,6 +126,23 @@ body {
 .back-text:nth-child(3),
 .back-text:nth-child(4) {
     margin-top: -20px;
+}
+
+.menu-text {
+    font-weight: 900;
+    font-size: 151px;
+    display: block;
+    width: 100%;
+    font-family: ObviouslyVariable, sans-serif;
+    transform: scaleX(3.9);
+    line-height: 1;
+    color: rgb(248, 193, 186) !important;
+}
+
+.menu-text:nth-child(2),
+.menu-text:nth-child(3),
+.menu-text:nth-child(4) {
+    margin-top: 20px;
 }
 
 .button-container {
@@ -132,7 +228,7 @@ body {
 
 
 .navbar a {
-    font-family: DegularDisplayBold, sans-serif !important;
+    font-family: DegularDisplayBold, sans-serif;
     font-size: 20px;
     display: inline-block;
     text-decoration: none;
@@ -151,9 +247,10 @@ section {
     padding: 20px;
     height: 150vh;
     box-sizing: border-box;
+    transition: background-color 0.5s, color 0.5s;
 }
 
-#home {
+#section1 {
     font-family: titlefont, sans-serif;
     background-color: #1CAC78;
 }
@@ -180,10 +277,20 @@ section {
 
 }
 
-#about {
+#section2 {
     font-family: titlefont, sans-serif;
     background-color: rgb(201, 66, 69) !important;
     color: rgb(248, 193, 186) !important;
+}
+
+.color1 {
+    background-color: #1CAC78;
+    color: #a8d5ba;
+}
+
+.color2 {
+    background-color: rgb(201, 66, 69);
+    color: rgb(248, 193, 186);
 }
 
 @keyframes popUp {
