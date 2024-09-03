@@ -7,29 +7,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body id="change">
-    <style>
-        .color1 {
-            background-color: #1CAC78;
-        }
-
-        .color2 {
-            background-color: rgb(201, 66, 69);
-        }
-
-        .color3 {
-
-        }
-    </style>
-
     <div class="menu-container">
         <button class="menu-button" id="openModal">☰ Menu</button>
+        <button class="menu-button" id="switchToWin95">Windows 95 Mode</button>
     </div>
 
     <!-- Modal -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <div class="border-container">
-                <div id="modalPersonalText" class="head" style="margin-top: 100px; font-size: 100px !important;">
+                <div id="modalPersonalText" class="head" style="margin-top: 100px; font-size: 100px;">
                     <span class="menu-text" style="font-size: 100px;"><a href="about.html" style="text-decoration: none; color:rgb(248, 193, 186);">ABOUT ME</a></span>
                     <span class="menu-text special" style="font-size: 100px;"><a href="education.html" style="text-decoration: none; color:rgb(248, 193, 186);">EDUCATION</a></span>
                     <span class="menu-text special" style="font-size: 100px;"><a href="awards.html" style="text-decoration: none; color:rgb(248, 193, 186);">AWARDS</a></span>
@@ -40,7 +27,7 @@
         </div>
     </div>
 
-    <div class="navbar">
+    <div class="navbar" id="navbar">
         <a href="index.html">Rithvik Madiraju</a>
     </div>
 
@@ -95,9 +82,40 @@
         </div>
     </footer>
 
-    <div class="blue-cloud"></div>
+    <svg id="blueCloud" width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" class="blue-cloud">
+        <ellipse cx="80" cy="70" rx="50" ry="30" fill="#C94245" />
+        <ellipse cx="120" cy="70" rx="50" ry="30" fill="#C94245" />
+        <ellipse cx="100" cy="50" rx="60" ry="40" fill="#C94245" />
+        <ellipse cx="60" cy="90" rx="40" ry="25" fill="#C94245" />
+        <ellipse cx="140" cy="90" rx="40" ry="25" fill="#C94245" />
+        <ellipse cx="100" cy="85" rx="80" ry="40" fill="#C94245" />
+    </svg>
 
     <script src="js/script.js"></script>
     <script src="js/modal.js"></script>
+    <script>
+        document.getElementById('switchToWin95').addEventListener('click', function() {
+            window.location.replace("./windows95/index.html");
+        });
+
+        const openModalButton = document.getElementById('openModal');
+        const modal = document.getElementById('modal');
+        const blueCloud = document.getElementById('blueCloud');
+
+        openModalButton.addEventListener('click', function() {
+            blueCloud.classList.add('expand');
+            setTimeout(function() {
+                navbar.classList.add('show');
+                modal.classList.add('show');
+            }, 1000);
+        });
+
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.remove('show');
+                blueCloud.classList.remove('expand');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 95 Bootup</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- Audio Element -->
+    <audio id="startup" src="sound/startup.mp3" preload="auto"></audio>
+
+    <div class="bootup-screen">
+        <div class="logo-container">
+            <img src="img/win95.png" alt="Windows 95 Logo" class="logo" id="win95Logo">
+        </div>
+        <div class="loading-text">
+        </div>
+        <!-- Custom Notification -->
+        <div class="notification">
+            <div class="notification-header">
+                <span>Warning</span>
+                <button>X</button>
+            </div>
+            <div class="notification-body">
+                <img src="icons/warning.ico" alt="Warning Icon">
+                <p>To begin, you must click on the Windows 95 logo</p>
+            </div>
+            <div class="notification-footer">
+                <button id="okButton">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>

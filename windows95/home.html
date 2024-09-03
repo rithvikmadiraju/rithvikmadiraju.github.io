@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 95 UI Portfolio</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px dotted #000;
+        }
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            background: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            top: 20px;
+            left: 0;
+            white-space: nowrap;
+            z-index: 100;
+        }
+        .collapsible-header {
+            cursor: pointer;
+            background-color: #ddd;
+            padding: 10px;
+            border: 1px solid #aaa;
+            margin-top: 10px;
+        }
+        .collapsible-content {
+            display: none;
+            padding: 10px;
+            border-left: 1px solid #aaa;
+            border-right: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 80%;
+            background-color: #aaa;
+            z-index: 0;
+        }
+
+
+        .timeline-event {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .timeline-content.left {
+            justify-content: flex-start;
+            left: -53%;
+            text-align: left;
+        }
+
+        .timeline-content.right {
+            justify-content: flex-end;
+            right: -0.5%;
+            text-align: right;
+        }
+
+
+        
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    z-index: 1;
+
+    animation: fillCircle 2s forwards;
+}
+
+
+@keyframes fillCircle {
+    from {
+        background-color: #fff;
+        transform: translateX(-50%) scale(1);
+    }
+    to {
+        background-color: #008080;
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+
+.timeline-content.left::before {
+    left: auto;
+    right: -20px;
+    animation-delay: 0s;
+}
+
+.timeline-content.right::before {
+    right: auto;
+    left: -10px;
+    animation-delay: 0s;
+}
+
+
+.timeline-event:nth-of-type(1)::before {
+    animation-delay: 2s;
+}
+
+.timeline-event:nth-of-type(2)::before {
+    animation-delay: 1s;
+}
+
+.timeline-event:nth-of-type(3)::before {
+    animation-delay: 0s;
+}
+
+
+
+
+        #quiz-container {
+            margin-top: 20px;
+        }
+        #quiz-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #quiz-container li {
+            background-color: #eee;
+            padding: 10px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        #quiz-container li:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <audio id="shutdown" src="sound/shutdown.mp3" preload="auto"></audio>
+    <div class="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" data-window-id="aboutme">
+            <img src="icons/mycomputer.ico" alt="My Computer">
+            <span>About Me</span>
+        </div>
+        <div class="desktop-icon" data-window-id="education">
+            <img src="icons/network-neighborhood.png" alt="Network Neighborhood">
+            <span>Education</span>
+        </div>
+        <div class="desktop-icon" data-window-id="awards">
+            <img src="icons/disk-drive.png" alt="Disk Drive">
+            <span>Awards</span>
+        </div>
+        <div class="desktop-icon" data-window-id="projects">
+            <img src="icons/control-panel.png" alt="Control Panel">
+            <span>Projects</span>
+        </div>
+        <div class="desktop-icon" data-window-id="experience">
+            <img src="icons/computer.png" alt="Experiences">
+            <span>Experiences</span>
+        </div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <div class="start-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Logo_%281992-2001%29.svg" alt="Start">
+                Start
+            </div>
+            <div class="taskbar-items" id="taskbar-items">
+                <!-- Taskbar items will be added here dynamically -->
+            </div>
+            <div class="taskbar-clock" id="time">
+            </div>
+        </div>
+
+        <!-- Start Menu -->
+        <div class="start-menu">
+            <div class="start-menu-header">
+                <span class="bold">Windows</span> <span style="font-weight: normal;"> 95</span>
+            </div>
+            <ul class="start-menu-items">
+                <li onclick="openWindow('aboutme')"><img src="icons/mycomputer.ico" alt="About Me"> About Me</li>
+                <li onclick="openWindow('education')"><img src="icons/network-neighborhood.png" alt="Documents"> Education</li>
+                <li onclick="openWindow('awards')"><img src="icons/disk-drive.png" alt="Settings"> Awards</li>
+                <li onclick="openWindow('projects')"><img src="icons/control-panel.png" alt="Settings"> Projects</li>
+                <li onclick="openWindow('experience')"><img src="icons/computer.png" alt="Settings"> Experiences</li>
+                <br></br>
+                <br></br>
+                <hr class="start-menu-divider">
+                <li class="shutdown" onclick="shutdown()"><img src="icons/shutdown.ico" alt="Shut Down"> Shut Down...</li>
+            </ul>
+        </div>
+
+        <!-- Windows -->
+        <div class="window" id="aboutme" style="display: none; width: 1000px; height: 100px;">
+            <div class="window-header">
+                <span class="window-title">About Me</span>
+                <div class="window-controls">
+                    <button class="window-btn minimize">_</button>
+                    <button class="window-btn maximize">□</button>
+                    <button class="window-btn close" onclick="closeWindow('aboutme')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+               <p>Under Construction</p>
+            </div>
+        </div>
+
+        <div class="window" id="education" style="display: none; width: 800px;">
+            <div class="window-header">
+                <span class="window-title">Education</span>
+                <div class="window-controls">
+                    <button class="window-btn minimize">_</button>
+                    <button class="window-btn maximize">□</button>
+                    <button class="window-btn close" onclick="closeWindow('education')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Under Construction</p>
+            </div>
+        </div>
+
+        <div class="window" id="awards" style="display: none;">
+            <div class="window-header">
+                <span class="window-title">Awards</span>
+                <div class="window-controls">
+                    <button class="window-btn minimize">_</button>
+                    <button class="window-btn maximize">□</button>
+                    <button class="window-btn close" onclick="closeWindow('awards')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Under Construction</p>
+            </div>
+        </div>
+
+        <div class="window" id="projects" style="display: none;">
+            <div class="window-header">
+                <span class="window-title">Projects</span>
+                <div class="window-controls">
+                    <button class="window-btn minimize">_</button>
+                    <button class="window-btn maximize">□</button>
+                    <button class="window-btn close" onclick="closeWindow('projects')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Under Construction</p>
+            </div>
+        </div>
+
+        <div class="window" id="experience" style="display: none;">
+            <div class="window-header">
+                <span class="window-title">Experience</span>
+                <div class="window-controls">
+                    <button class="window-btn minimize">_</button>
+                    <button class="window-btn maximize">□</button>
+                    <button class="window-btn close" onclick="closeWindow('experience')">X</button>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Under Construction</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/home.js"></script>
+    <script>
+        let guess = 0;
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.nextElementSibling.classList.toggle('active');
+                if (this.nextElementSibling.style.display === "block") {
+                    this.nextElementSibling.style.display = "none";
+                } else {
+                    this.nextElementSibling.style.display = "block";
+                }
+            });
+        });
+
+        document.querySelectorAll('.timeline-event').forEach(event => {
+            event.addEventListener('click', function() {
+                const content = this.querySelector('.timeline-content');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        function checkAnswer(option) {
+            guess += 1;
+            const quizContainer = document.getElementById('quiz-container');
+            if (option.textContent === 'Central Processing Unit') {
+                quizContainer.innerHTML = '<p style="color: green; font-weight: bold;">Attempt #' + guess + ': Correct! CPU stands for Central Processing Unit.</p>';
+            } else {
+                quizContainer.innerHTML += '<p style="color: red; font-weight: bold;">Attempt #' + guess + ': Incorrect. Please try again.</p>';
+            }
+        }
+    </script>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>

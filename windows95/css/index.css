@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'win95';
+    src: url('../fonts/W95FA.otf');
+}
+
+body {
+    margin: 0;
+    background-color: #000;
+    color: #FFF;
+    font-family: 'win95', Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    cursor: url("../img/cursor.cur"), auto
+}
+a, button, input[type="button"], input[type="submit"] {
+    cursor: url('../img/cursor.cur'), auto;
+}
+
+.bootup-screen {
+    text-align: center;
+    position: relative;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 200px;
+    filter: drop-shadow(0 0 5px #FFF);
+    cursor: pointer;
+    animation: fadeInLogo 2s ease-in-out;
+}
+
+.loading-text {
+    font-size: 24px;
+    animation: blink 1s infinite;
+}
+
+.notification {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    border: 2px solid #c0c0c0;
+    background-color: #c0c0c0;
+    font-family: 'win95', Tahoma, sans-serif;
+    animation: showNotification 1s ease-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.notification-header {
+    background-color: #000080;
+    color: #fff;
+    padding: 5px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notification-header span {
+    font-size: 14px;
+}
+
+.notification-body {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.notification-body img {
+    margin-right: 10px;
+    width: 32px;
+    height: 32px;
+}
+
+.notification-body p {
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+    color: #000; 
+}
+
+.notification-footer {
+    padding: 5px;
+    text-align: center;
+    border-top: 2px solid #fff;
+}
+
+#okButton {
+    padding: 2px 20px;
+    background-color: #e0e0e0;
+    border: 1px solid #7f7f7f;
+    box-shadow: 1px 1px 0px #fff, -1px -1px 0px #000;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#okButton:hover {
+    background-color: #d0d0d0;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInLogo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes showNotification {
+    from { opacity: 0; bottom: 30px; }
+    to { opacity: 1; bottom: 50px; }
+}
